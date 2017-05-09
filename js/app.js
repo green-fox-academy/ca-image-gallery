@@ -46,6 +46,14 @@ const App = function(rootElement, images) {
 	this.addEvents = function() {
 		this.navLeft.addEventListener('click', this.navigateLeft.bind(this));
 		this.navRight.addEventListener('click', this.navigateRight.bind(this));
+
+		let thumbs = this.root.querySelectorAll('.thumbnails div');
+
+		thumbs.forEach(function(thumb, index){
+			thumb.addEventListener('click', function () {
+				this.displayImage(index);
+			}.bind(this));
+		}, this);
 	}
 
 	this.navigateLeft = function() {
@@ -58,6 +66,3 @@ const App = function(rootElement, images) {
 		this.displayImage(this.imageIndex);
 	}
 }
-
-const myGallery = new App('.tokyo', images);
-myGallery.init();
