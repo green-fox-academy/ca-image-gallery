@@ -13,11 +13,21 @@
 const App = function(rootElement, images) {
 	this.root = document.querySelector(rootElement);
 	this.thumbnails = this.root.querySelector('.thumbnails');
+	this.mainImage = this.root.querySelector('.image');
+	this.descTitle = this.root.querySelector('.image h1');
+	this.descBody = this.root.querySelector('.image p');
 	this.images = images;
 
 	this.init = function() {
-		console.log('App started');
+		this.displayImage(0);
 		this.generateThumbnails();
+	}
+
+	this.displayImage = function(index) {
+		let img = this.images[index];
+		this.mainImage.style.backgroundImage = 'url(images/' + img.file + ')';
+		this.descTitle.innerText = img.title;
+		this.descBody.innerText = img.desc;
 	}
 
 	this.generateThumbnails = function () {

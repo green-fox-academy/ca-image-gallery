@@ -27,14 +27,19 @@ body {
 	position: relative;
 	flex: 1 1 100%;
 	overflow: hidden;
+	background-size: cover;
+	background-position: center;
 }
 
-.image div {
+/* description */
+
+.image div { 
 	background: rgba(0,0,0,0.5);
 	color: #fff;
 	padding: 1rem;
 	position: absolute;
 	left: 0;
+	right: 0;
 	bottom: 0;
 	transform: translateY(100%);
 	transition: 0.3s all ease;
