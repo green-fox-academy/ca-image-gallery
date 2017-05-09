@@ -16,11 +16,16 @@ const App = function(rootElement, images) {
 	this.mainImage = this.root.querySelector('.image');
 	this.descTitle = this.root.querySelector('.image h1');
 	this.descBody = this.root.querySelector('.image p');
+	this.navLeft = this.root.querySelector('.gallery .left');
+	this.navRight = this.root.querySelector('.gallery .right');
+	//
 	this.images = images;
+	this.imageIndex = 0;
 
 	this.init = function() {
-		this.displayImage(0);
+		this.displayImage(this.imageIndex);
 		this.generateThumbnails();
+		this.addEvents();
 	}
 
 	this.displayImage = function(index) {
@@ -36,6 +41,21 @@ const App = function(rootElement, images) {
 			thumb.style.backgroundImage = 'url(images/' + image.file + ')';
 			this.thumbnails.appendChild(thumb);
 		}, this);
+	}
+
+	this.addEvents = function() {
+		this.navLeft.addEventListener('click', this.navigateLeft.bind(this));
+		this.navRight.addEventListener('click', this.navigateRight.bind(this));
+	}
+
+	this.navigateLeft = function() {
+		this.imageIndex = (this.imageIndex == 0) ? this.images.length - 1 : --this.imageIndex;
+		this.displayImage(this.imageIndex);
+	}
+
+	this.navigateRight = function() {
+		this.imageIndex = (this.imageIndex < this.images.length-1)? ++this.imageIndex : 0;
+		this.displayImage(this.imageIndex);
 	}
 }
 
