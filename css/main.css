@@ -1,4 +1,65 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body, html {
+	background: #efefef;
+	height: 100%;
+}
 
 body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.gallery {
+	width: 70vw;
+	height: 50vh;
+	margin: auto;
+	background: #ccc;
+	display: flex;
+}
+
+.image {
+	background: navy;
+	position: relative;
+	flex: 1 1 100%;
+	overflow: hidden;
+}
+
+.image div {
+	background: rgba(0,0,0,0.5);
+	color: #fff;
+	padding: 1rem;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	transform: translateY(100%);
+	transition: 0.3s all ease;
+}
+
+.image:hover div {
+	transform: translateY(0%);
+}
+
+.left, .right {
+	flex: 0 0 50px;
 	background: tomato;
+}
+
+/* THUMBNAIL SECTION */
+
+.thumbnails {
+	background: #666;
+	height: 100px;
+	padding: 1rem;
+}
+
+.thumbnails div {
+	width: 150px;
+	height: 100%;
+	background: #fff;
+	display: inline-block;
 }
