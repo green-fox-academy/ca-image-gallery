@@ -54,6 +54,10 @@ const App = function(rootElement, images) {
 				this.displayImage(index);
 			}.bind(this));
 		}, this);
+
+		window.addEventListener('resize', function () {
+			console.log(window.innerWidth);
+		})
 	}
 
 	this.navigateLeft = function() {
